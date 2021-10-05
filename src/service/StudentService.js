@@ -13,6 +13,13 @@ export default{
             ax
                 .post("/student/insert", student, config)
                 .then(response => {
+                alert (response.data);
+                this.student.firstName = "";
+                this.student.lastName = "";
+                this.student.userName = "" ;
+                this.student.email = "";
+				this.student.passWord = "";
+                this.getAllStudents();
                     resolve(response);
                 })
                 .catch(err => {

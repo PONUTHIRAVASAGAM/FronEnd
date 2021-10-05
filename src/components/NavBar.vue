@@ -46,6 +46,9 @@
 <StudentPopup />
 </div>
 <div>
+<CollegePopup />
+</div>
+<div>
   <b-img center src="https://upload.wikimedia.org/wikipedia/commons/a/af/Akka_baseline_logo-RVB400px.png" height="150%" width="150%" alt="Center image"></b-img>
 </div>
 </div>
@@ -69,9 +72,11 @@ a {
 </style>
 <script>
 import StudentPopup from './StudentPopup';
+import CollegePopup from './CollegePopup';
 export default{
 	components:{
-		StudentPopup
+		StudentPopup,
+		CollegePopup
 		
 	},
   }

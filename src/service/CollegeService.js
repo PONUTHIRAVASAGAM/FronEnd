@@ -13,6 +13,13 @@ export default{
             ax
                 .post("/college/insert", college, config)
                 .then(response => {
+                alert (response.data);
+                this.college.collegeName = "";
+                this.college.userName = "";
+                this.college.mobileNumber = "" ;
+                this.college.address = "";
+				this.college.passWord = "";
+                this.getAllColleges();
                     resolve(response);
                 })
                 .catch(err => {

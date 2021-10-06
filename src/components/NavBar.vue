@@ -13,16 +13,8 @@
       <b-navbar-nav>
         <b-nav-item href="#">Home</b-nav-item>
         <b-nav-item href="#" >About</b-nav-item>
+		<b-nav-item href="#" v-b-modal.modal-1 >Login</b-nav-item>
       </b-navbar-nav>
-
-<div>
-        <b-nav-item-dropdown text="Login" left>
-          <b-dropdown-item href="#" v-b-modal.modal-center1>Admin</b-dropdown-item>
-          <b-dropdown-item href="#"  v-b-modal.modal-center2>College</b-dropdown-item>
-          <b-dropdown-item href="#"  v-b-modal.modal-center3>Student</b-dropdown-item>
-          <!-- <b-dropdown-item href="#">FA</b-dropdown-item> -->
-        </b-nav-item-dropdown>
-</div>
         <b-nav-item-dropdown left>
           <!-- Using 'button-content' slot -->
           <template #button-content>
@@ -49,6 +41,9 @@
 <CollegePopup />
 </div>
 <div>
+<Login />
+</div>
+<div>
   <b-img center src="https://upload.wikimedia.org/wikipedia/commons/a/af/Akka_baseline_logo-RVB400px.png" height="150%" width="150%" alt="Center image"></b-img>
 </div>
 </div>
@@ -72,11 +67,13 @@ a {
 </style>
 <script>
 import StudentPopup from './StudentPopup';
+import Login from './Login';
 import CollegePopup from './CollegePopup';
 export default{
 	components:{
 		StudentPopup,
-		CollegePopup
+		CollegePopup,
+		Login
 		
 	},
   }

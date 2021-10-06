@@ -3,7 +3,7 @@
 <b-modal id="modal-center5" centered title="Register" hide-footer>
   <!-- Default form register -->
  
-    <p class="h4 text-center mb-4">college Registration</p>
+    <p class="h4 text-center mb-4">College Registration</p>
     <label for="defaultFormRegisterNameEx" class="grey-text">College Name</label>
     <input type="text" id="defaultFormRegisterEmailEx" class="form-control" placeholder="College Name" v-model="college.collegeName" required/>
     <br/>
@@ -50,6 +50,41 @@ export default {
                     reject(err);
                 });
             });             
+        },
+		getCollege: function(id){
+            return new Promise((resolve, reject) => {
+                CollegeService.getCollege(id)
+                .then((response) => {    
+                    console.log("College is ", response.data)    
+                    this.college = response.data;                 
+                    resolve(response);
+                }).catch((err) => {
+                    reject(err);
+                });
+            });              
+        },		
+        getAllColleges: function(){
+            return new Promise((resolve, reject) => {
+                CollegeService.getAllColleges()
+                .then((response) => {    
+                    this.college = response.data;             
+                    resolve(response);
+                }).catch((err) => {
+                    reject(err);
+                });
+            });              
+        },		
+        deleteCollege: function(id){
+            return new Promise((resolve, reject) => {
+                CollegeService.deleteCollege(id)
+                .then((response) => {    
+                    this.college = response.data; 
+                    this.getAllColleges();            
+                    resolve(response);
+                }).catch((err) => {
+                    reject(err);
+                });
+            });              
         }
 		}
 		}

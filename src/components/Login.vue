@@ -2,7 +2,7 @@
     <div>
         <b-modal id="modal-1" title="LOGIN" ref="modal" hide-footer>
    <b-form ref="form" @submit.stop.prevent="onSubmit" >
-      <div>
+<!--      <div>
     <b-form-group>
                <b-form-radio-group  v-model="selected"
         >
@@ -21,7 +21,7 @@
                 </b-container>
                </b-form-radio-group>
               </b-form-group>
-  </div>
+  </div> -->
        <b-form-group id="log-grp-2" label="User Name" label-for="un">
           <b-form-input id="un"
           name="un"
@@ -30,7 +30,7 @@
            </b-form-input>
           <b-form-invalid-feedback
           id="unameerr" >
-          This is a required field and must be at least 3 characters.
+          This is a required field and must be at least 1 characters.
           </b-form-invalid-feedback>
           <!-- <span  id="unameerr"></span> -->
        </b-form-group>
@@ -42,7 +42,7 @@
            </b-form-input>
           <b-form-invalid-feedback
           id="passerr" >
-          This is a required field and must be at least 3 characters.
+          This is a required field and must be at least 1 characters.
           </b-form-invalid-feedback>
           <!-- <span  id="passerr"></span> -->
        </b-form-group>
@@ -55,11 +55,10 @@
     </div>
 </template>
 <script>
-import { validationMixin } from 'vuelidate'
-import { required} from 'vuelidate/lib/validators'
+import CollegeService from '../service/CollegeService'
+
 export default {
   name: 'Login',
-  mixins: [validationMixin],
   data() {
       return {
           selected: '1',
@@ -70,54 +69,29 @@ export default {
          }
       };
     },
-    validations: {
-    form: {
-      uname: {
-        required,
-      },
-      pass: {
-        required,
-      },
-  }
-    },
   methods: {
-    validateState(uname) {
-      const { $dirty, $error } = this.$v.form[uname];
-      return $dirty ? !$error : null;
-    },
-    resetForm() {
-      this.form = {
-        uname:null,
-        pass:null,
+	name: 'Login',
+  data() {
+      return {
+          cl:{
+            username:'',
+            password:''
+          },
       };
-      this.$nextTick(() => {
-        this.$v.$reset();
-      });
     },
-  onSubmit() {
-      this.$v.form.$touch();
-if (this.selected==1) {
-    if (this.$v.form.$anyError) {
-        return;
-      }
-        alert("Admin Form submitted!");
-       location.reload();
-}
-else if (this.selected==2) {
-if (this.$v.form.$anyError) {
-        return;
-      }
-        alert("college Form submitted!");
-       location.reload();
-}
-else if (this.selected==3) {
-if (this.$v.form.$anyError) {
-        return;
-      }
-        alert("student Form submitted!");
-       location.reload();
-}
+     loginCollege: function(){
+        return new Promise((resolve, reject) => {
+            CollegeService.loginCollege(this.cl)
+                .then(response => {
+                    alert("login successfully")
+                    resolve(response);
+                })
+                .catch(err => {
+                   alert("login failed")
+                    reject(err);
+                });
+        });        
     }
-  }
-};
+	},
+	}
 </script>

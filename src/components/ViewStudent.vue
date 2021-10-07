@@ -52,7 +52,7 @@
                 <b-form-select class="form-control" v-model="student.college" :options="colleges"></b-form-select>
             </b-form-group>
     <div class="text-center mt-4">
-      <button class="btn btn-danger"  @click="putStudent()">Update</button>
+      <button class="btn btn-danger"  @click="updateStudent()">Update</button>
     </div>
   <!-- Default form register -->
   </b-modal>
@@ -109,6 +109,17 @@ export default {
                 });
             });             
         },
+        updateStudent: function(){
+            return new Promise((resolve, reject) => {
+                StudentService.updateStudent(this.student)
+                .then((response) => {    
+                    this.student = response.data;             
+                    resolve(response);
+                }).catch((err) => {
+                    reject(err);
+                });
+            });             
+        },		
         deleteStudent: function(id){
             return new Promise((resolve, reject) => {
                 StudentService.deleteStudent(id)

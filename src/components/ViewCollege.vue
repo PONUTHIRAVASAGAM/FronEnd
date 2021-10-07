@@ -15,9 +15,9 @@
             </b-row>
             <b-row v-for="s in college" v-bind:key="s.id">
                 <b-col>{{s.id}}</b-col>
-                <b-col>{{s.collegeName}}</b-col>
-                <b-col>{{s.userName}}</b-col>
-                <b-col>{{s.mobileNumber}}</b-col>
+                <b-col>{{s.collegename}}</b-col>
+                <b-col>{{s.username}}</b-col>
+                <b-col>{{s.mobilenumber}}</b-col>
                 <b-col>{{s.address}}</b-col>
                 <b-col>
                     <span><b-icon icon="trash-fill" aria-hidden="true" @click="deleteCollege(s.id)"></b-icon></span>
@@ -32,21 +32,21 @@
  
     <p class="h4 text-center mb-4">Update College </p>
     <label for="defaultFormRegisterNameEx" class="grey-text">College Name</label>
-    <input type="text" id="defaultFormRegisterEmailEx" class="form-control" placeholder="College Name" v-model="college.collegeName" required/>
+    <input type="text" id="defaultFormRegisterEmailEx" class="form-control" placeholder="College Name" v-model="college.collegename" required/>
     <br/>
     <label for="defaultFormRegisterNameEx" class="grey-text">User Name</label>
-    <input id="defaultFormRegisterEmailEx" class="form-control" type="text" placeholder="User Name" v-model="college.userName" required/>
+    <input id="defaultFormRegisterEmailEx" class="form-control" type="text" placeholder="User Name" v-model="college.username" required/>
     <br/>
     <label for="defaultFormRegisterNameEx" class="grey-text">Mobile Number</label>
-    <input id="defaultFormRegisterEmailEx" class="form-control" type="number" placeholder="Mobile Number" v-model="college.mobileNumber" required/>
+    <input id="defaultFormRegisterEmailEx" class="form-control" type="number" placeholder="Mobile Number" v-model="college.mobilenumber" required/>
     <br/>	
     <label for="defaultFormRegisterEmailEx" class="grey-text">Address</label>
     <input id="defaultFormRegisterEmailEx" class="form-control" type="text" placeholder="Address" v-model="college.address" required/>
     <br/>
     <label for="defaultFormRegisterPasswordEx" class="grey-text">Your Password</label>
-    <input id="defaultFormRegisterEmailEx" class="form-control" type="password" placeholder="Password" v-model="college.passWord" required/>
+    <input id="defaultFormRegisterEmailEx" class="form-control" type="password" placeholder="Password" v-model="college.password" required/>
     <div class="text-center mt-4">
-      <button class="btn btn-danger"  @click="putCollege()">Update</button>
+      <button class="btn btn-danger"  @click="updateCollege()">Update</button>
     </div>
   <!-- Default form register -->
   </b-modal>
@@ -64,9 +64,9 @@ export default {
         return{
             college: {
                 id: "",
-                collegeName:"",
-                userName: "",
-                mobileNumber:"",
+                collegename:"",
+                username: "",
+                mobilenumber:"",
 				address:"",
             },
             colleges: null,
@@ -98,6 +98,17 @@ export default {
                 });
             });             
         },
+        updateCollege: function(){
+            return new Promise((resolve, reject) => {
+                CollegeService.updateCollege(this.college)
+                .then((response) => {    
+                    this.college = response.data;             
+                    resolve(response);
+                }).catch((err) => {
+                    reject(err);
+                });
+            });             
+        },		
         deleteCollege: function(id){
             return new Promise((resolve, reject) => {
                 CollegeService.deleteCollege(id)

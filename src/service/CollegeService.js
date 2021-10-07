@@ -72,5 +72,46 @@ export default{
                 reject(err);
             });
         });             
-    },    
+    },
+    updateCollege: function(college){
+        var ax = axios.create({
+            baseURL: "http://localhost:8081",
+        });
+        let config = {
+            headers: {
+                "Content-Type": "application/json"
+            }
+        };
+        return new Promise((resolve, reject) => {
+            ax
+                .post("/college/update", college, config)
+                .then(response => {
+                    resolve(response);
+                })
+                .catch(err => {
+                    reject(err);
+                });
+        }); 
+    },
+loginCollege: function(cl){
+        var ax = axios.create({
+            baseURL: "http://localhost:8081",
+        });
+        let config = {
+            headers: {
+                "Content-Type": "application/json"
+            }
+        };
+        return new Promise((resolve, reject) => {
+            axis
+                .post("/College/login",cl, config)
+                .then(response => {
+                    resolve(response);
+                })
+                .catch(err => {
+                    reject(err);
+                });
+        }); 
+    }
+    
 }

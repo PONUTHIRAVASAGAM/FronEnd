@@ -13,7 +13,7 @@
       <b-navbar-nav>
         <b-nav-item href="#">Home</b-nav-item>
         <b-nav-item href="#" >About</b-nav-item>
-		<b-nav-item href="#" v-b-modal.modal-1 >Login</b-nav-item>
+		<b-nav-item href="#" v-b-modal.modal-center1 >Login</b-nav-item>
       </b-navbar-nav>
         <b-nav-item-dropdown left>
           <!-- Using 'button-content' slot -->

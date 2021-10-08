@@ -103,8 +103,8 @@ loginCollege: function(cl){
             }
         };
         return new Promise((resolve, reject) => {
-            axis
-                .post("/College/login",cl, config)
+            ax
+                .post("/college/login",cl, config)
                 .then(response => {
                     resolve(response);
                 })

@@ -4,7 +4,7 @@
     <b-table striped hover :items="items" :fields="fields"></b-table>	
         <h1>College Details</h1>
     <div>
-        <b-table-simple>
+        <b-table-simple hover responsive>
             <b-row>
                 <b-col>Id</b-col>			
                 <b-col>College Name</b-col>

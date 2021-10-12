@@ -1,6 +1,7 @@
 <template>
     <div>
 <nav-bar />
+           <b-button type="button" variant="outline-danger " class="mx-3"> <router-link to="/AfterAdmin"> <span>Back</span> </router-link></b-button>
     <b-table striped hover :items="items" :fields="fields"></b-table>	
         <h1>Students Details</h1>
     <div>
@@ -17,9 +18,9 @@
             <b-row v-for="s in student" v-bind:key="s.id">
                 <b-col>{{s.id}}</b-col>
 				<b-col>{{s.college}}</b-col>
-                <b-col>{{s.firstName}}</b-col>
-                <b-col>{{s.lastName}}</b-col>
-                <b-col>{{s.userName}}</b-col>
+                <b-col>{{s.firstname}}</b-col>
+                <b-col>{{s.lastname}}</b-col>
+                <b-col>{{s.username}}</b-col>
                 <b-col>{{s.email}}</b-col>
                 <b-col>
                     <span><b-icon icon="trash-fill" aria-hidden="true" @click="deleteStudent(s.id)"></b-icon></span>
@@ -34,19 +35,19 @@
  
     <p class="h4 text-center mb-4">Update Student</p>
     <label for="defaultFormRegisterNameEx" class="grey-text">First Name</label>
-    <input type="text" id="defaultFormRegisterEmailEx" class="form-control" placeholder="First Name" v-model="student.firstName" required/>
+    <input type="text" id="defaultFormRegisterEmailEx" class="form-control" placeholder="First Name" v-model="student.firstname" required/>
     <br/>
     <label for="defaultFormRegisterNameEx" class="grey-text">Last Name</label>
-    <input id="defaultFormRegisterEmailEx" class="form-control" type="text" placeholder="Last Name" v-model="student.lastName" required/>
+    <input id="defaultFormRegisterEmailEx" class="form-control" type="text" placeholder="Last Name" v-model="student.lastname" required/>
     <br/>
     <label for="defaultFormRegisterNameEx" class="grey-text">User Name</label>
-    <input id="defaultFormRegisterEmailEx" class="form-control" type="text" placeholder="User Name" v-model="student.userName" required/>
+    <input id="defaultFormRegisterEmailEx" class="form-control" type="text" placeholder="User Name" v-model="student.username" required/>
     <br/>	
     <label for="defaultFormRegisterEmailEx" class="grey-text">Your email</label>
     <input id="defaultFormRegisterEmailEx" class="form-control" type="email" placeholder="Email Id" v-model="student.email" required/>
     <br/>
     <label for="defaultFormRegisterPasswordEx" class="grey-text">Your Password</label>
-    <input id="defaultFormRegisterEmailEx" class="form-control" type="password" placeholder="Password" v-model="student.passWord" required/>
+    <input id="defaultFormRegisterEmailEx" class="form-control" type="password" placeholder="Password" v-model="student.password" required/>
 	<br/>
 		<b-form-group label="College:">
                 <b-form-select class="form-control" v-model="student.college" :options="colleges"></b-form-select>
@@ -75,9 +76,9 @@ export default {
         ],
             student: {
                 id: "",
-                firstName:"",
-                lastName: "",
-                userName:"",
+                firstname:"",
+                lastname: "",
+                username:"",
 				email:"",
             },
             students: null,

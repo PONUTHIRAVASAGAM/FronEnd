@@ -1,19 +1,17 @@
 <template>
+    <div>
 <nav-bar />
-<div Container>
   <b-jumbotron>
     <template #header>Faculty Management</template>
+               <b-button type="button" variant="outline-danger " class="mx-3"> <router-link to="/AfterCollege"> <span>Back</span> </router-link></b-button>
     <hr class="my-4">
   <b-button v-b-modal.modal-center2 variant="primary">Add Faculty</b-button>	
 <div>
 <AddFaculty />
 </div>
   </b-jumbotron>
-  </div><br><br><br>
-  <div Container>
-
     <b-table striped hover :items="items" :fields="fields"></b-table>	
-        <h1>College Details</h1>
+        <h1>Faculty Details</h1>
     <div>
         <b-table-simple hover responsive>
             <b-row>
@@ -24,7 +22,7 @@
                 <b-col>Skill Set</b-col>
                 <b-col>Actions</b-col>
             </b-row>
-            <b-row v-for="s in college" v-bind:key="s.id">
+            <b-row v-for="s in faculty" v-bind:key="s.id">
                 <b-col>{{s.id}}</b-col>
                 <b-col>{{s.facultyname}}</b-col>
                 <b-col>{{s.qualification}}</b-col>
@@ -34,7 +32,7 @@
                     <span><b-icon icon="trash-fill" aria-hidden="true" @click="deleteFaculty(s.id)"></b-icon></span>
                     <span><b-icon icon="pencil-fill" aria-hidden="true" @click="getFaculty(s.id)" v-b-modal.modal-center3></b-icon></span>
                 </b-col>
-            </b-row>            
+            </b-row>              
         </b-table-simple>
     </div>
 	<div>
@@ -55,15 +53,14 @@
     <input id="defaultFormRegisterEmailEx" class="form-control" type="text" placeholder="Skill Set" v-model="faculty.skillset" required/>
     <br/>		
     <div class="text-center mt-4">
-      <button class="btn btn-primary"  @click="putFaculty()">Add</button>
+      <button class="btn btn-danger"  @click="updateFaculty()">Update</button>
     </div>
   <!-- Default form register -->
   </b-modal>
-</div>
- <Footer />
-</div>
+</div>	
+<Footer />	
+    </div>
 </template>
-
 <script>
 import FacultyService from '../service/FacultyService'
 import AddFaculty from './AddFaculty';
@@ -145,4 +142,4 @@ import NavBar from './NavBar';
         }
 		}	
   }
-</script>
+</script>            

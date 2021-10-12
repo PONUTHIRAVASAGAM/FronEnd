@@ -93,7 +93,7 @@ export default{
                 });
         }); 
     },
-loginCollege: function(cl){
+loginCollege: function(log){
         var ax = axios.create({
             baseURL: "http://localhost:8081",
         });
@@ -104,7 +104,7 @@ loginCollege: function(cl){
         };
         return new Promise((resolve, reject) => {
             ax
-                .post("/college/login",cl, config)
+                .post("/college/login",log, config)
                 .then(response => {
                     resolve(response);
                 })

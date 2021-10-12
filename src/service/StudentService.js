@@ -92,5 +92,25 @@ export default{
                     reject(err);
                 });
         }); 
+    },
+    loginStudent: function(log){
+        var ax = axios.create({
+            baseURL: "http://localhost:8081",
+        });
+        let config = {
+            headers: {
+                "Content-Type": "application/json"
+            }
+        };
+        return new Promise((resolve, reject) => {
+            ax
+                .post("/student/login",log, config)
+                .then(response => {
+                    resolve(response);
+                })
+                .catch(err => {
+                    reject(err);
+                });
+        }); 
     }	
     }    

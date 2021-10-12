@@ -15,9 +15,9 @@ export default{
                 .then(response => {
                 alert (response.data);
                 this.faculty.facultyname = "";
-                this.faculty.userName = "";
-                this.faculty.mobileNumber = "" ;
-                this.faculty.address = "";
+                this.faculty.qualification = "";
+                this.faculty.experience = "" ;
+                this.faculty.skilset = "";
                 this.getAllFaculty();
                     resolve(response);
                 })

@@ -1,6 +1,7 @@
 <template>
     <div>
 <nav-bar />
+           <b-button type="button" variant="outline-danger " class="mx-3"> <router-link to="/AfterAdmin"> <span>Back</span> </router-link></b-button>
     <b-table striped hover :items="items" :fields="fields"></b-table>	
         <h1>College Details</h1>
     <div>

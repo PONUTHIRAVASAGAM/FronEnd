@@ -20,5 +20,14 @@ import Footer from './Footer';
 		Footer,
 		
 	},
+	mounted(){
+        this.logout();
+    },
+         methods:{
+        logout: function(){
+         localStorage.removeItem('status');
+         localStorage.removeItem('role');
+            }
+        }
   }
 </script>

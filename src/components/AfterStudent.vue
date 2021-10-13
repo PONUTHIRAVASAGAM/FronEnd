@@ -1,7 +1,7 @@
 <template>
 <div>
 <nav-bar />
-<h1> Student Login</h1> <br> <b-button variant="danger" href="http://localhost:8080">Logout</b-button>
+<h1> Student Login</h1> <br> <b-button variant="danger" href="http://localhost:8080" @click="logoiut()">Logout</b-button>
 <b-list-group Container>
   <b-list-group-item variant="primary"><h2>Download Articles</h2></b-list-group-item>
   <b-list-group-item variant="primary"><h2>Update Profile</h2></b-list-group-item>

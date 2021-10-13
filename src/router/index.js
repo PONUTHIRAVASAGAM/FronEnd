@@ -23,21 +23,21 @@ const routes = [
                 component: HomePage
         },       
 		{
-                path: '/ViewCollege',
+                path: '/AfterAdmin/ViewCollege',
                 name: 'ViewCollege',
                 component: ViewCollege,
                 meta:{
                         requiresAuth:true,
-                        role:'College'
+                        role:'Admin'
                         }
         },
         {
-                path: '/ViewStudent',
+                path: '/AfterAdmin/ViewStudent',
                 name: 'ViewStudent',
                 component: ViewStudent,
                 meta:{
                         requiresAuth:true,
-                        role:'Student'
+                        role:'Admin'
                                }
         },
 		{
@@ -87,12 +87,12 @@ const routes = [
                                }
         },
 		{
-                path: '/Faculty',
+                path: '/AfterCollege/Faculty',
                 name: 'Faculty',
                 component: Faculty,
                 meta:{
                         requiresAuth:true,
-                        role:'Admin'
+                        role:'College'
                                }
         },
 ];

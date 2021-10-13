@@ -1,10 +1,10 @@
 <template>
 <div>
 <nav-bar />
-<h1> College Login</h1> <br> <b-button variant="danger" href="http://localhost:8080">Logout</b-button>
+<h1> College Login</h1> <br> <b-button variant="danger" href="http://localhost:8080" @click="logout()">Logout</b-button>
 <b-list-group>
   <b-list-group-item variant="primary" href="/AfterCollege/UploadArticle"><h2>Upload Articles</h2></b-list-group-item>
-  <b-list-group-item variant="primary" href="/Faculty"><h2>Faculty Management</h2></b-list-group-item>
+  <b-list-group-item variant="primary" href="/AfterCollege/Faculty"><h2>Faculty Management</h2></b-list-group-item>
   <b-list-group-item variant="primary"><h2>Update College Profile</h2></b-list-group-item>
   <b-list-group-item variant="primary"><h2>Send Response</h2></b-list-group-item>
     <b-list-group-item variant="primary"><h2>View students Request</h2></b-list-group-item>
